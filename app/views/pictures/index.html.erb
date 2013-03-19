@@ -1,0 +1,9 @@
+<h3>Ruby on Rails</h3>
+
+<h1>TURN MY HEADPHONES UP</h1>
+
+  <% @pictures.each do |picture| %>
+  <p> <%= picture[:title] %> </p>
+  <p> <%= picture[:artist] %> </p>
+  <p> <img src="<%= picture[:url] %> "> </p>
+  <% end %>
