@@ -1,3 +1,5 @@
+# generated with rails generate migration create_pictures
+
 class CreatePictures < ActiveRecord::Migration
   def up
     create_table :pictures do |t|

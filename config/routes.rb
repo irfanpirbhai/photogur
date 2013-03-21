@@ -1,12 +1,20 @@
 Photogur::Application.routes.draw do
 
-  get '/pictures' => 'pictures#index'
+  
+  # Matches /pictures
+  get 'pictures' => 'pictures#index' # controller#action
 
-  get '/pictures/new' => 'pictures#new'
-  post '/pictures' => 'pictures#create'
+# Matches /pictures/SOMEID/edit
+  get 'pictures/:id/edit' => 'pictures#edit'
+  post 'pictures/:id' => 'pictures#update'
 
-  get '/pictures/:id' => 'pictures#show'
+# Matches /pictures/new
+  get 'pictures/new' => 'pictures#new'
+  post 'pictures' => 'pictures#create'
 
+# Matches /pictures/SOMEID
+  get 'pictures/:id' => 'pictures#show'
+  
   
   # get 'pictures/2' => 'pictures#show'
   # get 'pictures/3' => 'pictures#show'

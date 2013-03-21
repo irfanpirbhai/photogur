@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Picture.create!(
+                :title => "Starry Night",
+                :artist => "Vincent Van Gogh",
+                :url => "http://static.ddmcdn.com/gif/vincent-van-gogh-paintings-from-saint-remy-2.jpg"       
+                )
+
+
+Picture.create!(
+                :title => "Piano Guy",
+                :artist => "Justin Bua",
+                :url => "http://static.ddmcdn.com/gif/vincent-van-gogh-paintings-from-saint-remy-2.jpg"       
+                )
