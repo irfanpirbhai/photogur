@@ -1,19 +1,25 @@
 Photogur::Application.routes.draw do
 
+  root :to => 'pictures#index'
+
+  resources :pictures
   
-  # Matches /pictures
-  get 'pictures' => 'pictures#index' # controller#action
 
-# Matches /pictures/SOMEID/edit
-  get 'pictures/:id/edit' => 'pictures#edit'
-  post 'pictures/:id' => 'pictures#update'
+#   # Matches /pictures
+#   get 'pictures' => 'pictures#index' # controller#action
+#   # get '/' => 'pictures#index'  to set default page, can use this, or
+#   root :to => 'pictures#index'
 
-# Matches /pictures/new
-  get 'pictures/new' => 'pictures#new'
-  post 'pictures' => 'pictures#create'
+# # Matches /pictures/SOMEID/edit
+#   get 'pictures/:id/edit' => 'pictures#edit'
+#   post 'pictures/:id' => 'pictures#update'
 
-# Matches /pictures/SOMEID
-  get 'pictures/:id' => 'pictures#show'
+# # Matches /pictures/new
+#   get 'pictures/new' => 'pictures#new'
+#   post 'pictures' => 'pictures#create'
+
+# # Matches /pictures/SOMEID
+#   get 'pictures/:id' => 'pictures#show'
   
   
   # get 'pictures/2' => 'pictures#show'

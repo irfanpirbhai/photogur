@@ -19,7 +19,7 @@ class PicturesController < ApplicationController
   end
   
   def new
-
+    @picture = Picture.new
   end
 
   def edit
@@ -63,12 +63,16 @@ class PicturesController < ApplicationController
 
   def create
     # render :text => "Saving a picture. Url: #{params[:url]}, Title: #{params[:title]}, Artist: #{params[:artist]}"
-    @picture = Picture.new
-    @picture.artist = params[:artist]
-    @picture.title = params[:title]
-    @picture.url = params[:url]
-    success = @picture.save
-    redirect_to '/pictures'
+  
+    @picture = Picture.create(params[:picture])
+
+    # @picture = Picture.new
+    # @picture.artist = params[:artist]
+    # @picture.title = params[:title]
+    # @picture.url = params[:url]
+   
+      redirect_to '/pictures'
+    end
 
   end
 
