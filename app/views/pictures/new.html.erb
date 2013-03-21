@@ -1,12 +1,21 @@
 <h1>Add a picture</h1>
 <!-- <form action="/pictures/update" method="POST"> -->
-  
+
+<div class="errors">
+  <%= flash[:error] %>
+</div>
+
 <%= form_for @picture do |f| %>
   <p>
     <label>Artist</label><br>
     <%= f.text_field "artist" %>
   <p>
     <label>Title</label><br>
+    
+    <div class="errors"><% if @picture.errors.messages[:title] %>Field
+      <%= @picture.errors.messages[:title][0] %>
+      <% end %></div>
+
     <%= f.text_field "title" %>
   </p>
     <label>URL</label><br>

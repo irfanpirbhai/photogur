@@ -5,8 +5,6 @@ class PicturesController < ApplicationController
     # load_pictures
     # {"controller"=>"pictures", "action"=>"index", "boogers"=>"3"}
     @pictures = Picture.all
-
-
   end
   
   def show
@@ -23,8 +21,8 @@ class PicturesController < ApplicationController
   end
 
   def edit
-
     @picture = Picture.find(params[:id])
+
     # @picture.artist = params[:artist]
     # @picture.title = params[:title]
     # @picture.url = params[:url]
@@ -33,17 +31,38 @@ class PicturesController < ApplicationController
   end
 
   def update
-    # render :text => "Updating a picture. Url: #{params[:url]}, Title: #{params[:title]}, Artist: #{params[:artist]}"
     @picture = Picture.find(params[:id])
     
+    if @picture.update_attributes(params[:picture])
+      # could do a bunch of these
+      # redirect_to "/pictures/#{@picture.id}"
+      # redirect_to picture_path(@picture.id)
+      # redirect_to picture_path(@picture)
+      # redirect_to picture_path
+      redirect_to @picture
+      # called named routes. named routes are convenience methods created by ruby to help us navigate the application.
+    else
+      redirect_to pictures_path
+    end
+  end
+
+ #    # render :text => "Updating a picture. Url: #{params[:url]}, Title: #{params[:title]}, Artist: #{params[:artist]}"
+
+ # @picture = Picture.new(params[:picture])
+ #    # .create doesn't return a boolean, always returns an instance of a picture
+
+ #    if @picture.save # returns true or false
+ #      redirect_to '/pictures' #pictures_path
+
+  
     # Solution 1:
     # can do with our without curly brackets
     
-    success = @picture.update_attributes(
-      {:artist     => params[:artist],
-      :title      => params[:title],
-      :url        => params[:url]}
-      )
+    # success = @picture.update_attributes(
+    #   {:artist     => params[:artist],
+    #   :title      => params[:title],
+    #   :url        => params[:url]}
+    #   )
 
     # Solution 2:
 
@@ -56,25 +75,30 @@ class PicturesController < ApplicationController
     # @picture.title = params[:title]
     # @picture.url = params[:url]
     # success = @picture.save
-    if success
-      redirect_to '/pictures' #pictures_path
-    end
-  end
-
+   
   def create
     # render :text => "Saving a picture. Url: #{params[:url]}, Title: #{params[:title]}, Artist: #{params[:artist]}"
   
-    @picture = Picture.create(params[:picture])
+    @picture = Picture.new(params[:picture])
+    # .create doesn't return a boolean, always returns an instance of a picture
+
+    if @picture.save # returns true or false
+      redirect_to pictures_path  
+
+      # redirect_to '/pictures'
+    else
+      flash.now[:error] = "Could not save the picture."
+        render :new
+    end
+  end
+
+      # render method looks in your current controller, looks for the keyword, and renders the view for the action in your controller
+      # redirect_to new_picture_path # --> Loses the data.
 
     # @picture = Picture.new
     # @picture.artist = params[:artist]
     # @picture.title = params[:title]
     # @picture.url = params[:url]
-   
-      redirect_to '/pictures'
-    end
-
-  end
 
   # def load_pictures
   #   @pictures = [
@@ -98,5 +122,4 @@ class PicturesController < ApplicationController
   #     }
   #   ]
   # end
-
 end

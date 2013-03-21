@@ -1,9 +1,12 @@
-<h3>Ruby on Rails</h3>
-
 <h1>TURN MY HEADPHONES UP</h1>
+<!-- 
+  <p><a href="<%= new_picture_path %>">Add a new picture</a></p>
+ -->
+<p><%= link_to "Add a new picture", new_picture_path %></p>
 
   <% @pictures.each do |picture| %>
-  <p> <%= picture.title %> </p>
-  <p> <%= picture.artist %> </p>
-  <p> <img src="<%= picture.url %> "> </p>
+  <li> <%=button_to "Edit", edit_picture_path(picture), :method => :get %> </li<br>
+  <%= picture.title %><br>
+  <%= picture.artist %><br>
+  <p> <a href="<%= picture_path(picture)%>"><img src="<%= picture.url %> "></a> </p>
   <% end %>

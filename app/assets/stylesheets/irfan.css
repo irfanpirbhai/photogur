@@ -1,0 +1,36 @@
+.nav {
+  background-color: black;
+  padding: 10px 0px;
+  margin-left: -38px;
+  margin-top: -20px;
+  height: 40px;
+}
+
+.container {
+  background-color: grey;
+  display: block;
+}
+
+.nav ul li {
+  list-style: none;
+  float: left;
+  text-decoration: none;
+  padding-right: 25px;
+  font-color: white;
+  text
+}
+
+.nav a:hover, a:visited, a:link, a:active {
+  color: white;
+  text-decoration: none;
+  font-family: Arial
+}
+
+.errors {
+color: red;
+
+}
+
+.field_with_errors input {
+  border: 1px solid red;
+}
