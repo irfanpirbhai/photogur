@@ -1,1 +1,25 @@
-_form.html.erb
+<%= form_for @picture do |f| %>
+  <p>
+    <label>Artist</label><br>
+    <%= f.text_field "artist" %>
+  <p>
+    <label>Title</label><br>
+    
+    <% if @picture.errors.messages[:title] %>
+      <%= @picture.errors.messages[:title][0] %>
+    <% end %>
+
+    <%= f.text_field "title" %>
+  
+  </p>
+    <label>URL</label><br>
+    <%= @picture.errors[:url].join(" ")%>
+    <%= f.text_field "url" %>
+  </p>
+
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+</form>
+
+<% end %>

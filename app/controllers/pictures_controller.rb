@@ -90,6 +90,7 @@ class PicturesController < ApplicationController
       # there was an error on the form
     else
       flash.now[:error] = "Could not save the picture."
+      # you can use flash.now or flash by itself. 
       render :new
     end
   end
