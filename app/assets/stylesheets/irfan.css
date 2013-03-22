@@ -16,19 +16,22 @@
   float: left;
   text-decoration: none;
   padding-right: 25px;
-  font-color: white;
-  text
 }
 
-.nav a:hover, a:visited, a:link, a:active {
+.nav ul li a:hover, a:visited, a:link, a:active {
   color: white;
+  text-decoration: none;
+  font-family: Arial
+}
+
+.container a:hover, a:visited, a:link, a:active {
+  color: red;
   text-decoration: none;
   font-family: Arial
 }
 
 .errors {
 color: red;
-
 }
 
 .field_with_errors input {

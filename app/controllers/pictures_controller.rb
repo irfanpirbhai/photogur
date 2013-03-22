@@ -95,6 +95,15 @@ class PicturesController < ApplicationController
     end
   end
 
+  def destroy
+    # render :text => "DESTROY!"
+    @picture = Picture.find(params[:id])
+    @picture.destroy
+    redirect_to pictures_path
+
+  end
+
+
       # render method looks in your current controller, looks for the keyword, and renders the view for the action in your controller
       # redirect_to new_picture_path # --> Loses the data.
 

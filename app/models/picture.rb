@@ -1,14 +1,14 @@
 class Picture < ActiveRecord::Base
 
   # allow mass-assignment for the attributes title and artist
-  attr_accessible :title, :artist, :url
+  attr_accessible :title, :artist, :url, :copyrighted
   # don't confuse this with attr_accessor
 
   validates :title, :presence => true
   # which is the same as: validates(:title, {:presence => true})
   
   validates :url, {
-        # :presence => true, 
+        :presence => true, # redundant because the regex doesn't match empty string
         :format => {
           :with => /^https?:/, :message => "Please enter a valid URL"
         }   
