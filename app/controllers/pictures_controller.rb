@@ -4,7 +4,13 @@ class PicturesController < ApplicationController
   def index
     # load_pictures
     # {"controller"=>"pictures", "action"=>"index", "boogers"=>"3"}
-    @pictures = Picture.all
+    if params[:free] == "yes"
+      # @pictures = Picture.where(:copyrighted => false).all
+      @pictures = Picture.free.alphabetical.all
+    else
+      @pictures = Picture.alphabetical.all
+    end
+
   end
   
   def show
@@ -14,6 +20,7 @@ class PicturesController < ApplicationController
     # @picture = @pictures[{"controller"=>"pictures", "action"=>"show", "boogers"=>"3"}[:boogers]]
     # @picture = @pictures[params[:id].to_i]
     @picture = Picture.find(params[:id])
+
   end
   
   def new

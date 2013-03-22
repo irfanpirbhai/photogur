@@ -16,4 +16,7 @@ class Picture < ActiveRecord::Base
 
   # include Magic!
   # an instance of Picture is one row in our "pictures" database
+
+  scope :alphabetical, order("title ASC")
+  scope :free, where(:copyrighted => false)
 end
