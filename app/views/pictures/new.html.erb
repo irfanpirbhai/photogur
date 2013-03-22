@@ -12,13 +12,14 @@
   <p>
     <label>Title</label><br>
     
-    <div class="errors"><% if @picture.errors.messages[:title] %>Field
+    <% if @picture.errors.messages[:title] %>
       <%= @picture.errors.messages[:title][0] %>
-      <% end %></div>
+    <% end %>
 
     <%= f.text_field "title" %>
   </p>
     <label>URL</label><br>
+    <%= @picture.errors[:url].join(" ")%>
     <%= f.text_field "url" %>
   </p>
   <p>

@@ -86,9 +86,11 @@ class PicturesController < ApplicationController
       redirect_to pictures_path  
 
       # redirect_to '/pictures'
+
+      # there was an error on the form
     else
       flash.now[:error] = "Could not save the picture."
-        render :new
+      render :new
     end
   end
 
